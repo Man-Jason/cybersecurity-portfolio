@@ -1,2 +1,192 @@
-<h1>Staging — under construction</h1>
-<h1>Coming soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Man | Cybersecurity Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --card-bg: #1e293b;
+            --border: #334155;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--card-bg);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+        h2 {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+        .section-title {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-muted);
+        }
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+        .featured-project {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-left: 4px solid var(--accent);
+        }
+        .repo-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .repo-link-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jason Man</h1>
+        <h2>Cybersecurity & Information Science</h2>
+        <p class="intro-text">
+            Information Science undergraduate minoring in Economics, graduating in May 2026. 
+            Focused on bridging technical system hardening, security analysis, and the economics of cybersecurity policy.
+        </p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Featured Project: Enterprise Penetration Testing Simulation</h2>
+        <div class="card featured-project">
+            <p>
+                Executed comprehensive host reconnaissance and remote exploitation workflows. Successfully identified and exploited the <strong>UnrealIRCd backdoor</strong> and <strong>bindshell backdoor</strong> vulnerabilities using Nmap and Metasploit to demonstrate critical network exposure points.
+            </p>
+        </div>
+
+        <h2 class="section-title">Skills at a Glance</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Security & Forensics</h3>
+                <ul>
+                    <li>Nmap & Metasploit</li>
+                    <li>Snort & Wireshark</li>
+                    <li>FTK Imager</li>
+                    <li>Splunk Enterprise Security</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Systems & Hardening</h3>
+                <ul>
+                    <li>Linux & Windows Server</li>
+                    <li>AppArmor Configuration</li>
+                    <li>BitLocker Encryption</li>
+                    <li>SUID File Audits</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Development & Data</h3>
+                <ul>
+                    <li>Python, R, SQL</li>
+                    <li>Matplotlib Data Visualization</li>
+                    <li>MySQL (3NF Design)</li>
+                    <li>Agile & Scrum Methodologies</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>GRC & Cyber Economics</h3>
+                <ul>
+                    <li>NIS2 Directive & CRA Frameworks</li>
+                    <li>Risk Management & Registers</li>
+                    <li>Market Failures (Information Asymmetry)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Repository Categories</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Explore my hands-on labs, research writeups, and security tools:</p>
+        <div class="repo-links">
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/soc-tools" class="repo-link-btn">📁 soc-tools</a>
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="repo-link-btn">📁 grc</a>
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="repo-link-btn">📁 research-and-writeups</a>
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/tls-audits" class="repo-link-btn">📁 tls-audits</a>
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/certifications-and-skills" class="repo-link-btn">📁 certifications-and-skills</a>
+            <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/presentations" class="repo-link-btn">📁 presentations</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
