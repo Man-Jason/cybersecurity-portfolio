@@ -1,6 +1,6 @@
 # Jason Man - Cybersecurity Portfolio
 
-##About Me
+## About Me
 
 I'm a recent graduate from the University of Pittsburgh, with experience in information science and project management. I have a passion for Identity and Access Management as well as Governance, Risk and Compliance and hope to pursue professional development in those areas as well as cybersecurity as a whole.
 
