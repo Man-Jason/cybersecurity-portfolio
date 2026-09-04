@@ -15,7 +15,7 @@ Hello, I'm a recent graduate from the University of Pittsburgh, starting my care
 | Networking & Security Fundamentals | Identifying Network Vulnerabilities and Key Concepts, VLAN and DHCP Configuration - Nmap, Wireshark, Metasploit, Cisco Packet Tracer |
 | Linux & Windows Administration | System Hardening, User Account Policies - BitLocker, PAM |
 | Virtualization  | VMs, Hypervisor Security |
-| Cryptography & PKI | Managing and analyzing certificates, Setting up internal CA, TLS Configuration, Applied Cryptography - OpenSSL, AES, RSA |
+| Cryptography & PKI | Managing and analyzing certificates, Setting up internal CA, TLS Configuration, Applied Cryptography - OpenSSL, AES, RSA 
 | Governance, Risk, and Compliance | PCI DSS, NIST CSF, Risk Assessment | 
 | Identity and Access Management | Managing Account Security and File Permissions, ACLs, Active Directory |
 | Governance, Risk, and Compliance | SOC 2, ISO 27001, PCI DSS, NIST CSF, Risk Assessment |
