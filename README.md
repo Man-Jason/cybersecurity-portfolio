@@ -1,35 +1,47 @@
-# Jason Man - Cybersecurity Portfolio
+# 💻 Jason Man - Cybersecurity Portfolio
 
-## About Me
+## 👋 About Me
+Hello, I'm a recent graduate from the University of Pittsburgh, starting my career as a cybersecurity professional. I have a B.S. in Information Science and have developed my skills through hands-on labs involving security operations, networking, identity and access management, risk assessments, and more. Moving forward, my core focus is pursuing roles and professional development within IAM and GRC, especially with Third Party Risk Management.
 
-I'm a recent graduate from the University of Pittsburgh, with experience in information science and project management. I have a passion for Identity and Access Management as well as Governance, Risk and Compliance and pursuing professional development in those areas as well as cybersecurity as a whole.
+## 🎯 Current Goals
+- Complete Cybersecurity for Professionals Bootcamp, expanding on my cybersecurity skills
+- Gain practical experience managing third party risk and evaluating vendors
+- Begin studying for and become CompTIA Security+ certified
 
-## Skills 
-| Category | Tools / Concepts |
+
+## 🛠️ Skills 
+| Category | Concepts / Tools |
 |---|---|
-| Networking & Security Fundamentals | TCP/IP, DNS, DHCP, VLANs, Identifying Network Vulnerabilities and concepts |
+| Networking & Security Fundamentals | Identifying Network Vulnerabilities and Key Concepts, VLAN and DHCP Configuration - Nmap, Wireshark, Metasploit, Cisco Packet Tracer |
+| Linux & Windows Administration | System Hardening, User Account Policies - BitLocker, PAM |
 | Virtualization  | VMs, Hypervisor Security |
-| Cryptography & PKI | Managing and analyzing certificates, Setting up internal CA, TLS Configuration, Applied Cryptography|
-| Governance, Risk, and Compliance | PCI DSS, NIST CSF, Risk Assessment |
-| Identity and Access Management | Linux & Windows Administration, System Hardening, Managing Account Security and Permissions, ACLs, Active Directory |
+| Cryptography & PKI | Managing and analyzing certificates, Setting up internal CA, TLS Configuration, Applied Cryptography - OpenSSL, AES, RSA |
+| Governance, Risk, and Compliance | PCI DSS, NIST CSF, Risk Assessment | 
+| Identity and Access Management | Managing Account Security and File Permissions, ACLs, Active Directory |
+| Governance, Risk, and Compliance | SOC 2, ISO 27001, PCI DSS, NIST CSF, Risk Assessment |
+| Forensics | File Recovery, Disk Image Analysis, Incident Response - FTK Imager, Paraben E3 |
+| Project Management | Agile and Waterfall Methodologies - Azure DevOps Boards |
+| Data Analysis | Python, SQL, R |
 
 
-## What's In This Repository
+## 📁 Repository Map
+
 | Folder | What You'll Find |
 |---|---|
-| [soc-tools](./soc-tools) | ... |
-| [malware-analysis](./malware-analysis) | ... |
-| [grc](./grc) | ... |
-| [research-and-writeups](./research-and-writeups) | ... |
-| [presentations](./presentations) | ... |
-| [templates](./templates) | ... |
-| [certifications-and-skills](./certifications-and-skills) | ... |
-| [tls-audits](./tls-audits) | ... |
-
-## Website
-Live version of this portfolio: https://man-jason.github.io/cybersecurity-portfolio/staging/
+| [soc-tools](./soc-tools) | Security operations tools, detection concepts, and monitoring projects |
+| [malware-analysis](./malware-analysis) | Malware analysis notes and projects |
+| [grc](./grc) | Governance, risk, compliance, audit, and framework-related work |
+| [research-and-writeups](./research-and-writeups) | Cybersecurity research, incident analysis, and technical writeups |
+| [presentations](./presentations) | Presentation materials and speaker notes |
+| [templates](./templates) | Security documentation templates, checklists, and reusable resources |
+| [certifications-and-skills](./certifications-and-skills) | Certification progress and skills tracking |
+| [tls-audits](./tls-audits) | TLS and certificate security audit projects |
 
 
-## Contact
-LinkedIn - www.linkedin.com/in/-jasonman 
+## 🌐 Website
+Portfolio Website: https://man-jason.github.io/cybersecurity-portfolio/
 
+
+## 📫 Contact
+Email - jasonmanpa@gmail.com 
+LinkedIn - www.linkedin.com/in/-jasonman
