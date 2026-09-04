@@ -16,7 +16,6 @@ Hello, I'm a recent graduate from the University of Pittsburgh, starting my care
 | Linux & Windows Administration | System Hardening, User Account Policies - BitLocker, PAM |
 | Virtualization  | VMs, Hypervisor Security |
 | Cryptography & PKI | Managing and analyzing certificates, Setting up internal CA, TLS Configuration, Applied Cryptography - OpenSSL, AES, RSA 
-| Governance, Risk, and Compliance | PCI DSS, NIST CSF, Risk Assessment | 
 | Identity and Access Management | Managing Account Security and File Permissions, ACLs, Active Directory |
 | Governance, Risk, and Compliance | SOC 2, ISO 27001, PCI DSS, NIST CSF, Risk Assessment |
 | Forensics | File Recovery, Disk Image Analysis, Incident Response - FTK Imager, Paraben E3 |
