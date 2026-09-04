@@ -1,1 +1,1051 @@
-<h1>Coming soon</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Man | Cyber Security</title>
+    <style>
+        :root {
+            --primary-blue: #3b82f6; /* Vibrant tech blue */
+            --accent-cyan: #38bdf8; /* Cyber cyan */
+            --hero-bg: #0b1121; /* Deep cyber dark blue */
+            --bg-main: #f8fafc; /* Soft, low-contrast light slate background */
+            --bg-alt: #f1f5f9; /* Slate 100 - Alternate soft background */
+            --card-bg: #ffffff; /* Crisp white cards */
+            --card-border: #cbd5e1; /* Clear, soft border */
+            --text-dark: #0f172a; /* Slate 900 - Dark text for light sections */
+            --text-muted: #475569; /* Slate 600 - Readable muted text */
+            --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: "Fira Code", Menlo, Monaco, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Canvas Background (Hero Only) */
+        #networkCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.25; 
+            pointer-events: none;
+        }
+
+        /* Dark Top Header / Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(11, 17, 33, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Initials Logo Badge (Blue) */
+        .logo-badge {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover .logo-badge {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section (Dark Blue Title Section) */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 85vh;
+            gap: 2rem;
+            overflow: hidden;
+            background-color: var(--hero-bg);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        /* Dynamic Title Styling */
+        .title-wrapper {
+            min-height: 130px;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-name {
+            font-size: 4.8rem;
+            font-family: var(--font-main);
+            color: #ffffff; 
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-role {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .cursor {
+            color: var(--accent-cyan);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1; 
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* Reusable Social Buttons (Used in Hero and Contact) */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; 
+            padding: 0 1.25rem;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn svg { width: 18px; height: 18px; }
+
+        .social-btn:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Terminal Picture Frame */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .terminal-frame {
+            width: 100%;
+            max-width: 450px;
+            background-color: #1e2233;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .terminal-frame-header {
+            background-color: #0f172a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .frame-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .frame-dot.red { background: #fc605c; }
+        .frame-dot.yellow { background: #fdbc40; }
+        .frame-dot.green { background: #34c749; }
+
+        .terminal-frame-title {
+            color: #cbd5e1;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateX(-24px);
+        }
+
+        .terminal-frame-body {
+            width: 100%;
+            height: 450px;
+            background-image: url('assets/jmheadshot.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-color: #1e2233;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* General Sections */
+        section { 
+            padding: 6rem 0; 
+            background-color: var(--bg-main);
+            border-top: 1px solid var(--card-border); 
+        }
+
+        .section-label {
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .bg-gray { background-color: var(--bg-alt); }
+
+        /* Grids and Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg); 
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--card-border);
+            border-top: 3px solid var(--primary-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Image Banner for Carousel */
+        .card-img-banner {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark); 
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card ul { list-style: none; color: var(--text-muted); }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover li::before { transform: translateX(3px); }
+
+        .card-link {
+            color: var(--primary-blue);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+            margin-top: 1rem;
+        }
+
+        .card-link:hover { transform: translateX(5px); color: var(--accent-cyan); }
+
+        /* Perfectly Fitted Project Carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            padding: 0 3.5rem; 
+        }
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0; 
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-track .card {
+            flex: 0 0 calc(50% - 1rem); 
+            scroll-snap-align: start;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            color: var(--primary-blue);
+            border: 1px solid var(--card-border);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+        
+        .carousel-btn.prev { left: 0; }
+        .carousel-btn.next { right: 0; }
+
+        .carousel-btn:hover {
+            background-color: var(--primary-blue);
+            color: #fff;
+            border-color: var(--primary-blue);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Dark Blue Contact Section Styles */
+        .contact-box {
+            background-color: var(--hero-bg);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            color: #ffffff;
+        }
+
+        .contact-box p {
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        /* Repo Buttons */
+        .repo-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .repo-btn {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            border: 1px solid var(--card-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .repo-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .repo-btn:hover::before { width: 100%; }
+        .repo-btn:hover {
+            color: white;
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer Style matching reference */
+        footer {
+            background-color: #0b1121;
+            color: #94a3b8;
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-right {
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            .title-name { font-size: 3.5rem; }
+            .title-role { font-size: 1.8rem; }
+            .social-links { justify-content: center; }
+            .terminal-frame { max-width: 100%; }
+            .terminal-frame-body { height: 350px; }
+            .nav-links { display: none; }
+            
+            .carousel-container { padding: 0; }
+            .carousel-track .card { flex: 0 0 100%; }
+            .carousel-btn { display: none; } 
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-badge">JM</span>
+        </a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="#repositories">Repositories</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Dark Blue Title Section) -->
+    <header class="hero">
+        <canvas id="networkCanvas"></canvas>
+        <div class="container" style="display: flex; gap: 2rem; width: 100%; align-items: center; flex-wrap: wrap;">
+            <div class="hero-text reveal">
+                <div class="title-wrapper">
+                    <div class="title-name">
+                        <span id="name-typewriter"></span><span class="cursor name-cursor">|</span>
+                    </div>
+                    <div class="title-role">
+                        <span id="role-typewriter"></span><span class="cursor role-cursor" style="display:none;">|</span>
+                    </div>
+                </div>
+                <p>
+                    Dedicated cybersecurity practitioner bridging technical operations and risk management
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/Man-Jason" class="social-btn" target="_blank" title="GitHub">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com" class="social-btn" target="_blank" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="#projects" class="social-btn" title="Featured Work">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        Featured Work
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image reveal">
+                <div class="terminal-frame">
+                    <div class="terminal-frame-header">
+                        <span class="frame-dot red"></span>
+                        <span class="frame-dot yellow"></span>
+                        <span class="frame-dot green"></span>
+                        <span class="terminal-frame-title">jasonman@portfolio:~$</span>
+                    </div>
+                    <div class="terminal-frame-body"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="bg-gray">
+        <div class="container reveal">
+            <span class="section-label">About Me</span>
+            <h2>My Path in Cybersecurity</h2>
+            <div class="grid" style="grid-template-columns: 1fr;">
+                <div class="card" style="border-top: none; background: transparent; padding: 0; box-shadow: none; border: none;">
+                    <p style="font-size: 1.1rem; color: var(--text-muted);">
+                        Hello, I'm a recent graduate from the University of Pittsburgh, starting my career as a cybersecurity professional. I have developed my skills through hands-on labs involving security operations, networking, identity and access management, risk assessments, and more. Moving forward, my core focus is pursuing roles and professional development within IAM and GRC, especially with Third Party Risk Management.
+                    </p>
+                    <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <li><strong style="color:var(--text-dark);">Target Role:</strong> Positions focusing on GRC, IAM, and fraud analytics</li>
+                        <li><strong style="color:var(--text-dark);">Certifications:</strong> CompTIA Security+ [IN PROGRESS]</li>
+                        <li><strong style="color:var(--text-dark);">Academics:</strong> University of Pittsburgh Alum: B.S. Information Science</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section with Pictures -->
+    <section id="projects">
+        <div class="container reveal">
+            <span class="section-label">Featured Work</span>
+            <h2>Hands-On Projects</h2>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+                
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="projectTrack">
+                        <!-- Project 1 (TPRM) moved to first position with new, highly reliable Unsplash image -->
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=600&q=80" alt="Vendor Risk Assessment" class="card-img-banner">
+                            <div class="card-content">
+                                <h3>Third-Party Vendor Assessment: Notion</h3>
+                                <p>Established a standardized Third-Party Risk Management (TPRM) workflow to evaluate Notion Labs, Inc. for enterprise deployment. Assessed the platform across five core GRC domains, mapping vulnerabilities and defining mitigating controls for data protection.</p>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="card-link" target="_blank">View Assessment Report →</a>
+                            </div>
+                        </div>
+                        <!-- Project 2 (FaceOff) moved to second position -->
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Facial Recognition" class="card-img-banner">
+                            <div class="card-content">
+                                <h3>FaceOff: Facial Recognition Security</h3>
+                                <p>Awarded 3rd place at the SheInnovates hackathon. Developed a Python-based security tool leveraging OpenCV to perform real-time facial recognition in an effort to defend against social engineering attacks.</p>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/soc-tools" class="card-link" target="_blank">View Project →</a>
+                            </div>
+                        </div>
+                        <!-- Project 3 (Pen Testing) -->
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Penetration Testing" class="card-img-banner">
+                            <div class="card-content">
+                                <h3>Enterprise Penetration Testing Simulation</h3>
+                                <p>Conducted host reconnaissance and remote exploitation within an enterprise lab. Identified and exploited critical vectors targeting UnrealIRCd and bindshell backdoors using Nmap and Metasploit.</p>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio" class="card-link" target="_blank">View Documentation →</a>
+                            </div>
+                        </div>
+                        <!-- Project 4 (Risk Management) -->
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Risk Management" class="card-img-banner">
+                            <div class="card-content">
+                                <h3>PittGEO Stakeholder Risk Management</h3>
+                                <p>Constructed a comprehensive GRC risk management plan and risk register for a university-wide web migration. Developed an Agile product backlog with estimates for feature implementation.</p>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="card-link" target="_blank">View Risk Register →</a>
+                            </div>
+                        </div>
+                        <!-- Project 5 (System Hardening) -->
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80" alt="System Hardening" class="card-img-banner">
+                            <div class="card-content">
+                                <h3>OS System Hardening & Auditing</h3>
+                                <p>Configured Linux kernel hardening parameters (sysctl), enforced AppArmor profiles, audited SUID file permissions, and implemented Windows Server BitLocker encryption to secure environments.</p>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="card-link" target="_blank">View Audit Reports →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section Tied to Portfolio Image Array -->
+    <section id="skills" class="bg-gray">
+        <div class="container reveal">
+            <span class="section-label">Expertise</span>
+            <h2>Skills at a Glance</h2>
+            <div class="grid">
+                <!-- Networking & Security Fundamentals -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Networking & Security</h3>
+                        <ul>
+                            <li>Network Vulnerabilities</li>
+                            <li>VLAN & DHCP Configuration</li>
+                            <li>Nmap & Wireshark</li>
+                            <li>Metasploit & Packet Tracer</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Linux & Windows Administration -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Linux & Windows Admin</h3>
+                        <ul>
+                            <li>System Hardening</li>
+                            <li>User Account Policies</li>
+                            <li>BitLocker & PAM</li>
+                            <li>VMs & Hypervisor Security</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Identity and Access Management -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Identity & Access</h3>
+                        <ul>
+                            <li>Active Directory</li>
+                            <li>Access Control Lists (ACLs)</li>
+                            <li>Account Security</li>
+                            <li>File Permissions</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Cryptography & PKI -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Cryptography & PKI</h3>
+                        <ul>
+                            <li>Certificate Management</li>
+                            <li>Internal CA & TLS Config</li>
+                            <li>OpenSSL</li>
+                            <li>AES & RSA</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Governance, Risk, and Compliance -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Governance & Compliance</h3>
+                        <ul>
+                            <li>SOC 2 & ISO 27001</li>
+                            <li>PCI DSS</li>
+                            <li>NIST CSF</li>
+                            <li>Risk Assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Forensics -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Forensics</h3>
+                        <ul>
+                            <li>Incident Response</li>
+                            <li>Disk Image Analysis</li>
+                            <li>File Recovery</li>
+                            <li>FTK Imager & Paraben E3</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Project Management -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Project Management</h3>
+                        <ul>
+                            <li>Agile Methodologies</li>
+                            <li>Waterfall Methodologies</li>
+                            <li>Azure DevOps Boards</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Data Analysis -->
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Data Analysis</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>R</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section (Dark Blue Cyber Theme) -->
+    <section id="contact">
+        <div class="container reveal">
+            <div class="contact-box">
+                <span class="section-label" style="color:var(--accent-cyan);">Get in Touch</span>
+                <h2>Contact Me</h2>
+                <p>
+                    Feel free to reach out via email or connect with me on LinkedIn!
+                </p>
+                <div class="contact-actions">
+                    <a href="mailto:jasonmanpa@gmail.com" class="social-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email Me
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-btn">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repositories Section -->
+    <section id="repositories" class="bg-gray">
+        <div class="container reveal">
+            <span class="section-label">Documentation</span>
+            <h2>Explore the Repository </h2>
+            <div class="repo-flex">
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="repo-btn">📁 /grc</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/soc-tools" class="repo-btn">📁 /soc-tools</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="repo-btn">📁 /research-and-writeups</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/certifications-and-skills" class="repo-btn">📁 /certifications-and-skills</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/tls-audits" class="repo-btn">📁 /tls-audits</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/presentations" class="repo-btn">📁 /presentations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer matching reference image style -->
+    <footer>
+        <div class="footer-content">
+            <div>© 2026 Jason Man</div>
+            <div class="footer-right">Cybersecurity Portfolio • Deployed with GitHub Pages</div>
+        </div>
+    </footer>
+
+    <!-- Dynamic Interactions -->
+    <script>
+        // Dual Typewriter Effect
+        const nameText = "Jason Man";
+        const roleText = "Cybersecurity Professional";
+        let nIndex = 0;
+        let rIndex = 0;
+        
+        function typeName() {
+            if (nIndex < nameText.length) {
+                document.getElementById("name-typewriter").innerHTML += nameText.charAt(nIndex);
+                nIndex++;
+                setTimeout(typeName, 100);
+            } else {
+                document.querySelector('.name-cursor').style.display = 'none';
+                document.querySelector('.role-cursor').style.display = 'inline';
+                setTimeout(typeRole, 300); // pause before typing role
+            }
+        }
+        
+        function typeRole() {
+            if (rIndex < roleText.length) {
+                document.getElementById("role-typewriter").innerHTML += roleText.charAt(rIndex);
+                rIndex++;
+                setTimeout(typeRole, 80);
+            }
+        }
+        setTimeout(typeName, 500);
+
+        // Native Smooth Scroll Carousel Logic
+        function moveCarousel(direction) {
+            const track = document.getElementById('projectTrack');
+            const cards = track.querySelectorAll('.card');
+            if(cards.length === 0) return;
+            
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+            const scrollAmount = cardWidth + gap;
+            
+            track.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        revealElements.forEach(el => scrollObserver.observe(el));
+
+        // Interactive Particle Network Background
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.querySelector('.hero').offsetHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let mouse = { x: null, y: null, radius: 150 };
+        window.addEventListener('mousemove', function(event) {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+        window.addEventListener('mouseout', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius + this.size){
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 1.5;
+                    if (mouse.x > this.x && this.x > this.size * 10) this.x -= 1.5;
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 1.5;
+                    if (mouse.y > this.y && this.y > this.size * 10) this.y -= 1.5;
+                }
+                
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 18000; 
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 0.5) - 0.25;
+                let directionY = (Math.random() * 0.5) - 0.25;
+                let color = 'rgba(255, 255, 255, 0.85)'; 
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + 
+                                   ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        opacityValue = 1 - (distance / 15000);
+                        ctx.strokeStyle = 'rgba(56, 189, 248,' + (opacityValue * 0.4) + ')'; 
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
