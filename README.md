@@ -27,7 +27,7 @@ Hello, I'm a recent graduate from the University of Pittsburgh, starting my care
 
 | Folder | What You'll Find |
 |---|---|
-| [labs&project-work(./labs&project-work) | Master folder of completed lab and project work - System Hardening, Firewall Configuration, Incident Response, SOC, GRC, Vulnerability Management, and more |
+| [labs&project-work](./labs&project-work) | Master folder of completed lab and project work - System Hardening, Firewall Configuration, Incident Response, SOC, GRC, Vulnerability Management, and more |
 | [soc-tools](./soc-tools) | Security operations tools, detection concepts, and monitoring projects |
 | [malware-analysis](./malware-analysis) | Malware analysis notes and projects |
 | [grc](./grc) | Governance, risk, compliance, audit, TPRM, and framework-related work |
