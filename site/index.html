@@ -391,6 +391,39 @@
 
         .card-link:hover { transform: translateX(5px); color: var(--accent-cyan); }
 
+        .more-projects-card {
+            min-height: 460px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+        }
+
+        .more-projects-card .card-content {
+            flex-grow: 0;
+            align-items: center;
+            max-width: 420px;
+        }
+
+        .more-projects-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            margin-bottom: 1.5rem;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: #ffffff;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.28);
+        }
+
+        .more-projects-card .card-link {
+            margin-top: 0;
+        }
+
         /* Perfectly Fitted Project Carousel */
         .carousel-container {
             position: relative;
@@ -489,18 +522,21 @@
             margin-top: 1.5rem;
         }
 
-        /* Repo Buttons */
+        /* Repository Cards */
         .repo-flex {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1rem;
         }
 
         .repo-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
             background: var(--card-bg);
             color: var(--text-dark);
             border: 1px solid var(--card-border);
-            padding: 0.75rem 1.5rem;
+            padding: 1.25rem 1.5rem;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
@@ -529,6 +565,29 @@
             border-color: var(--primary-blue);
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .repo-name {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .repo-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.55;
+            transition: color 0.3s ease;
+        }
+
+        .repo-btn:hover .repo-description {
+            color: #e2e8f0;
+        }
+
+        @media (max-width: 700px) {
+            .repo-flex {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Footer Style matching reference */
@@ -721,6 +780,15 @@
                                 <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="card-link" target="_blank">View Audit Reports →</a>
                             </div>
                         </div>
+                        <!-- Final carousel card linking to the complete project collection -->
+                        <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/labs%26project-work" class="card more-projects-card" target="_blank" rel="noopener noreferrer" aria-label="See more projects in the labs and project work folder">
+                            <div class="card-content">
+                                <span class="more-projects-icon" aria-hidden="true">📁</span>
+                                <h3>See More Projects!</h3>
+                                <p>Explore the complete collection of cybersecurity labs and hands-on project work.</p>
+                                <span class="card-link">Browse All Projects →</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 
@@ -867,14 +935,28 @@
     <section id="repositories" class="bg-gray">
         <div class="container reveal">
             <span class="section-label">Documentation</span>
-            <h2>Explore the Repository </h2>
+            <h2>Explore the Repository</h2>
             <div class="repo-flex">
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="repo-btn">📁 /grc</a>
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/soc-tools" class="repo-btn">📁 /soc-tools</a>
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="repo-btn">📁 /research-and-writeups</a>
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/certifications-and-skills" class="repo-btn">📁 /certifications-and-skills</a>
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/tls-audits" class="repo-btn">📁 /tls-audits</a>
-                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/presentations" class="repo-btn">📁 /presentations</a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/labs%26project-work" class="repo-btn">
+                    <span class="repo-name">📁 /labs&amp;project-work</span>
+                    <span class="repo-description">Hands-on labs and projects covering system hardening, firewall configuration, network security, incident response, SOC operations, GRC, virtualization, social engineering, and vulnerability management.</span>
+                </a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/research-and-writeups" class="repo-btn">
+                    <span class="repo-name">📁 /research-and-writeups</span>
+                    <span class="repo-description">Cybersecurity research, incident analysis, threat-focused reports, and technical writeups.</span>
+                </a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/presentations" class="repo-btn">
+                    <span class="repo-name">📁 /presentations</span>
+                    <span class="repo-description">Presentation decks and supporting materials on cybersecurity technologies, risks, and defensive practices.</span>
+                </a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/templates" class="repo-btn">
+                    <span class="repo-name">📁 /templates</span>
+                    <span class="repo-description">Reusable security documentation templates, assessment resources, and checklists.</span>
+                </a>
+                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/certifications-and-skills" class="repo-btn">
+                    <span class="repo-name">📁 /certifications-and-skills</span>
+                    <span class="repo-description">Certification progress and a record of technical tools, frameworks, and security skills.</span>
+                </a>
             </div>
         </div>
     </section>
