@@ -9,10 +9,10 @@
             --primary-blue: #3b82f6; /* Vibrant tech blue */
             --accent-cyan: #38bdf8; /* Cyber cyan */
             --hero-bg: #0b1121; /* Deep cyber dark blue */
-            --bg-main: #f8fafc; /* Soft, low-contrast light slate background */
-            --bg-alt: #f1f5f9; /* Slate 100 - Alternate soft background */
+            --bg-main: #fbfcfe; /* Clean off-white main background */
+            --bg-alt: #f1f4f8; /* Subtle contrasting off-white */
             --card-bg: #ffffff; /* Crisp white cards */
-            --card-border: #cbd5e1; /* Clear, soft border */
+            --card-border: #d5dde8; /* Soft cool-gray border */
             --text-dark: #0f172a; /* Slate 900 - Dark text for light sections */
             --text-muted: #475569; /* Slate 600 - Readable muted text */
             --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -33,6 +33,7 @@
             font-family: var(--font-main);
             color: var(--text-dark);
             background-color: var(--bg-main);
+            background-image: radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.035), transparent 28%);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -285,7 +286,7 @@
         /* General Sections */
         section { 
             padding: 6rem 0; 
-            background-color: var(--bg-main);
+            background: linear-gradient(180deg, var(--bg-main) 0%, #f8fafc 100%);
             border-top: 1px solid var(--card-border); 
         }
 
@@ -307,7 +308,7 @@
             font-weight: 800;
         }
 
-        .bg-gray { background-color: var(--bg-alt); }
+        .bg-gray { background: linear-gradient(180deg, var(--bg-alt) 0%, #ebf0f6 100%); }
 
         /* Grids and Cards */
         .grid {
@@ -487,6 +488,153 @@
             box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
         }
 
+        /* Interactive Framework Mapping */
+        #framework-mapping {
+            background-color: var(--hero-bg);
+            background-image:
+                radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.13) 0%, transparent 34%),
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #framework-mapping h2 {
+            color: #ffffff;
+        }
+
+        #framework-mapping .section-label {
+            color: var(--accent-cyan);
+        }
+
+        .mapping-intro {
+            max-width: 780px;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin: -1rem 0 1.75rem;
+        }
+
+        .control-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .control-chip {
+            border: 1px solid rgba(203, 213, 225, 0.35);
+            background: rgba(255, 255, 255, 0.06);
+            color: #e2e8f0;
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .control-chip:hover,
+        .control-chip:focus-visible {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            outline: none;
+        }
+
+        .control-chip.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: #ffffff;
+            box-shadow: 0 5px 14px rgba(59, 130, 246, 0.28);
+        }
+
+        .mapping-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.4rem 1.5rem;
+            margin-bottom: 1.25rem;
+            background: rgba(30, 41, 59, 0.82);
+            color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.28);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+        }
+
+        .mapping-summary h3 {
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+        }
+
+        .mapping-summary p {
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        .mapping-count {
+            flex: 0 0 auto;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .framework-card {
+            background: rgba(17, 28, 49, 0.94);
+            border: 1px solid #334155;
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 8px;
+            padding: 1.15rem;
+            min-height: 225px;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.65);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28), 0 0 18px rgba(56, 189, 248, 0.08);
+        }
+
+        .framework-label {
+            display: inline-block;
+            margin-bottom: 0.85rem;
+            color: var(--primary-blue);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .framework-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.65rem;
+            color: #f8fafc;
+        }
+
+        .framework-card p {
+            color: #b8c5d6;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .mapping-note {
+            margin-top: 1rem;
+            padding: 0.9rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid var(--primary-blue);
+            color: #cbd5e1;
+            font-size: 0.86rem;
+        }
+
         /* Dark Blue Contact Section Styles */
         .contact-box {
             background-color: var(--hero-bg);
@@ -631,7 +779,14 @@
             .carousel-container { padding: 0; }
             .carousel-track .card { flex: 0 0 100%; }
             .carousel-btn { display: none; } 
+            .framework-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .footer-content { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .mapping-summary { flex-direction: column; }
+            .framework-grid { grid-template-columns: 1fr; }
+            .framework-card { min-height: 0; }
         }
     </style>
 </head>
@@ -645,6 +800,7 @@
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
+            <a href="#framework-mapping">Frameworks</a>
             <a href="#contact">Contact</a>
             <a href="#repositories">Repositories</a>
         </div>
@@ -741,7 +897,7 @@
                             <div class="card-content">
                                 <h3>Third-Party Vendor Assessment: Notion</h3>
                                 <p>Established a standardized Third-Party Risk Management (TPRM) workflow to evaluate Notion Labs, Inc. for enterprise deployment. Assessed the platform across five core GRC domains, mapping vulnerabilities and defining mitigating controls for data protection.</p>
-                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/blob/main/labs%26project-work/grc/Third-Party%20Vendor%20Assessment%20Report%20-%20Notion%20-%20Google%20Docs.pdf" class="card-link" target="_blank">View Assessment Report →</a>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/grc" class="card-link" target="_blank">View Assessment Report →</a>
                             </div>
                         </div>
                         <!-- Project 2 (FaceOff) moved to second position -->
@@ -750,7 +906,7 @@
                             <div class="card-content">
                                 <h3>FaceOff: Facial Recognition Security</h3>
                                 <p>Awarded 3rd place at the SheInnovates hackathon. Developed a Python-based security tool leveraging OpenCV to perform real-time facial recognition in an effort to defend against social engineering attacks.</p>
-                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/blob/main/labs%26project-work/social-engineering/faceoff-project-devpost.md" class="card-link" target="_blank">View Project →</a>
+                                <a href="https://github.com/Man-Jason/cybersecurity-portfolio/tree/main/soc-tools" class="card-link" target="_blank">View Project →</a>
                             </div>
                         </div>
                         <!-- Project 3 (Pen Testing) -->
@@ -901,6 +1057,42 @@
         </div>
     </section>
 
+    <!-- Interactive GRC Control-to-Framework Mapping -->
+    <section id="framework-mapping">
+        <div class="container reveal">
+            <span class="section-label">GRC &amp; TPRM</span>
+            <h2>Control Framework Mapping</h2>
+            <p class="mapping-intro">Select a security control to see how the same risk objective appears across five widely used governance and compliance frameworks.</p>
+
+            <div class="control-selector" role="group" aria-label="Select a security control">
+                <button class="control-chip active" type="button" data-control="access" aria-pressed="true">Access Control &amp; MFA</button>
+                <button class="control-chip" type="button" data-control="vendor" aria-pressed="false">Third-Party Risk</button>
+                <button class="control-chip" type="button" data-control="incident" aria-pressed="false">Incident Response</button>
+                <button class="control-chip" type="button" data-control="logging" aria-pressed="false">Logging &amp; Monitoring</button>
+                <button class="control-chip" type="button" data-control="change" aria-pressed="false">Change Management</button>
+                <button class="control-chip" type="button" data-control="data" aria-pressed="false">Data Protection</button>
+            </div>
+
+            <div class="mapping-summary" aria-live="polite">
+                <div>
+                    <h3 id="mappingTitle">Access Control &amp; MFA</h3>
+                    <p id="mappingObjective">Ensure only authorized users can access systems and sensitive information using verified identities and least privilege.</p>
+                </div>
+                <span class="mapping-count">1 CONTROL → 5 FRAMEWORKS</span>
+            </div>
+
+            <div class="framework-grid" id="frameworkGrid">
+                <article class="framework-card"><span class="framework-label">NIST CSF 2.0</span><h3 data-framework-title="nist">PR.AA — Identity Management, Authentication &amp; Access Control</h3><p data-framework-text="nist">Identities and credentials are managed, verified, and limited according to risk.</p></article>
+                <article class="framework-card"><span class="framework-label">ISO 27001</span><h3 data-framework-title="iso">Annex A 5.15–5.18 and 8.5</h3><p data-framework-text="iso">Addresses access-control policy, identity lifecycle, authentication information, access rights, and secure authentication.</p></article>
+                <article class="framework-card"><span class="framework-label">SOC 2</span><h3 data-framework-title="soc">CC6 — Logical &amp; Physical Access</h3><p data-framework-text="soc">Focuses on restricting logical access, authorizing users, and protecting credentials and system resources.</p></article>
+                <article class="framework-card"><span class="framework-label">PCI DSS</span><h3 data-framework-title="pci">Requirements 7 and 8</h3><p data-framework-text="pci">Restricts system access by business need-to-know and requires strong user identification and authentication.</p></article>
+                <article class="framework-card"><span class="framework-label">SOX</span><h3 data-framework-title="sox">ITGC — Logical Access</h3><p data-framework-text="sox">Supports reliable financial reporting by limiting and reviewing access to financially relevant systems and data.</p></article>
+            </div>
+
+            <p class="mapping-note"><strong>Portfolio crosswalk:</strong> These mappings show related control objectives for educational demonstration. Framework requirements are not automatically interchangeable, and formal compliance depends on scope, evidence, implementation, and assessor judgment.</p>
+        </div>
+    </section>
+
     <!-- Contact Me Section (Dark Blue Cyber Theme) -->
     <section id="contact">
         <div class="container reveal">
@@ -1013,6 +1205,91 @@
                 behavior: 'smooth'
             });
         }
+
+        // Interactive GRC control-to-framework mapping
+        const controlMappings = {
+            access: {
+                title: "Access Control & MFA",
+                objective: "Ensure only authorized users can access systems and sensitive information using verified identities and least privilege.",
+                nist: ["PR.AA — Identity Management, Authentication & Access Control", "Identities and credentials are managed, verified, and limited according to risk."],
+                iso: ["Annex A 5.15–5.18 and 8.5", "Addresses access-control policy, identity lifecycle, authentication information, access rights, and secure authentication."],
+                soc: ["CC6 — Logical & Physical Access", "Focuses on restricting logical access, authorizing users, and protecting credentials and system resources."],
+                pci: ["Requirements 7 and 8", "Restricts system access by business need-to-know and requires strong user identification and authentication."],
+                sox: ["ITGC — Logical Access", "Supports reliable financial reporting by limiting and reviewing access to financially relevant systems and data."]
+            },
+            vendor: {
+                title: "Third-Party Risk Management",
+                objective: "Identify, evaluate, contract for, and monitor risks introduced by vendors, service providers, and supply-chain relationships.",
+                nist: ["GV.SC — Cybersecurity Supply Chain Risk Management", "Establishes processes to identify, prioritize, assess, and monitor cybersecurity supply-chain risks."],
+                iso: ["Annex A 5.19–5.23 — Supplier & Cloud Services", "Covers supplier security, agreement requirements, service monitoring, supply-chain risk, and cloud-service use."],
+                soc: ["CC9.2 — Vendor & Business Partner Risk", "Considers risks arising from vendors and business partners as part of the entity's risk-mitigation activities."],
+                pci: ["Requirement 12.8 — Third-Party Service Providers", "Requires organizations to maintain, manage, and monitor relationships with service providers that affect cardholder-data security."],
+                sox: ["ITGC — Service Organization Oversight", "Evaluates outsourced processes and relevant service-organization controls that may affect internal control over financial reporting." ]
+            },
+            incident: {
+                title: "Incident Response",
+                objective: "Prepare for, analyze, contain, communicate, and recover from security incidents while preserving accountability and lessons learned.",
+                nist: ["RS — Respond", "Coordinates incident management, analysis, reporting, communication, mitigation, and recovery handoffs."],
+                iso: ["Annex A 5.24–5.28", "Addresses incident preparation, event assessment, response, lessons learned, and collection of evidence."],
+                soc: ["CC7.3–CC7.5 — Security Incidents", "Covers evaluating security events, responding to identified incidents, and recovering from them."],
+                pci: ["Requirement 12.10 — Incident Response", "Requires a documented, tested, and maintained incident-response plan for payment-card environments."],
+                sox: ["ITGC — Incident Escalation", "Ensures incidents affecting financially relevant systems are assessed, escalated, documented, and remediated." ]
+            },
+            logging: {
+                title: "Logging & Monitoring",
+                objective: "Record important system activity and continuously evaluate events for unauthorized behavior, control failures, and evidence needs.",
+                nist: ["DE.CM and DE.AE — Continuous Monitoring & Event Analysis", "Monitors assets and activity, then analyzes events to identify potentially adverse conditions."],
+                iso: ["Annex A 8.15 and 8.16", "Requires appropriate logging and monitoring activities to record events and identify anomalous behavior."],
+                soc: ["CC7.2 — Monitoring for Anomalies", "Monitors system components and analyzes anomalies that may indicate malicious acts, errors, or control breakdowns."],
+                pci: ["Requirement 10 — Log and Monitor Access", "Requires logging and monitoring access to system components and cardholder data."],
+                sox: ["ITGC — Monitoring & Audit Trails", "Provides evidence that access, processing, and changes affecting financial systems can be reviewed and investigated." ]
+            },
+            change: {
+                title: "Change Management",
+                objective: "Authorize, test, document, and review system changes before they affect production services or financially significant processing.",
+                nist: ["PR.PS — Platform Security", "Protects platforms through secure configuration, maintenance, software management, and controlled practices."],
+                iso: ["Annex A 8.32 — Change Management", "Requires changes to information-processing facilities and systems to follow defined management procedures."],
+                soc: ["CC8.1 — Change Management", "Addresses authorization, design, development or acquisition, configuration, testing, approval, and implementation of changes."],
+                pci: ["Requirement 6.5 — Secure Changes", "Requires changes to system components to be managed securely through established procedures."],
+                sox: ["ITGC — Program Change Controls", "Supports financial-reporting reliability by requiring approved, tested, segregated, and traceable production changes." ]
+            },
+            data: {
+                title: "Data Protection",
+                objective: "Classify sensitive information and protect it during storage, processing, transfer, retention, and disposal.",
+                nist: ["PR.DS — Data Security", "Protects data at rest, in transit, and in use while managing integrity, confidentiality, and availability."],
+                iso: ["Annex A 5.12, 5.14, 8.12 and 8.24", "Addresses information classification, secure transfer, data-leakage prevention, and cryptographic controls."],
+                soc: ["CC6 and C1 — Access & Confidentiality", "Protects confidential information through authorization, access restrictions, and controls over use and disclosure."],
+                pci: ["Requirements 3 and 4", "Protects stored account data and secures cardholder data when transmitted over open, public networks."],
+                sox: ["ITGC — Data Integrity & Protection", "Protects financially relevant data from unauthorized access or modification and supports complete, accurate reporting." ]
+            }
+        };
+
+        const controlChips = document.querySelectorAll('.control-chip');
+        const mappingTitle = document.getElementById('mappingTitle');
+        const mappingObjective = document.getElementById('mappingObjective');
+
+        function showControlMapping(controlKey) {
+            const mapping = controlMappings[controlKey];
+            if (!mapping) return;
+
+            mappingTitle.textContent = mapping.title;
+            mappingObjective.textContent = mapping.objective;
+
+            ['nist', 'iso', 'soc', 'pci', 'sox'].forEach(framework => {
+                document.querySelector(`[data-framework-title="${framework}"]`).textContent = mapping[framework][0];
+                document.querySelector(`[data-framework-text="${framework}"]`).textContent = mapping[framework][1];
+            });
+
+            controlChips.forEach(chip => {
+                const selected = chip.dataset.control === controlKey;
+                chip.classList.toggle('active', selected);
+                chip.setAttribute('aria-pressed', selected.toString());
+            });
+        }
+
+        controlChips.forEach(chip => {
+            chip.addEventListener('click', () => showControlMapping(chip.dataset.control));
+        });
 
         // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
